@@ -7,9 +7,6 @@ abstract class EnvironmentVariables {
   @EnviedField(varName: 'VERSION_URL')
   static const String versionUrl = _EnvironmentVariables.versionUrl;
 
-  @EnviedField(varName: 'UPDATE_URL')
-  static const String updateUrl = _EnvironmentVariables.updateUrl;
-
   @EnviedField(varName: 'EXE_FILE_NAME')
   static const String exeFileName = _EnvironmentVariables.exeFileName;
 

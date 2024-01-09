@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final controller = const LauncherController();
+  final controller = LauncherController();
   var progress = 0.0;
   var errorWhileUpdating = false;
   var isUpdated = false;
@@ -22,14 +22,14 @@ class _MainScreenState extends State<MainScreen> {
 
   void _tryUpdate() async {
     controller.isUpdated().then((value) {
-      final (version, isUpdated) = value;
+      final (_, isUpdated) = value;
 
       this.isUpdated = isUpdated;
 
       debugPrint('isUpdated: $isUpdated');
 
       if (!isUpdated) {
-        controller.update(version, (progress) {
+        controller.update((progress) {
           setState(() {
             this.progress = progress;
           });
@@ -37,7 +37,6 @@ class _MainScreenState extends State<MainScreen> {
           debugPrint("Total Progress: ${(progress * 100).toStringAsFixed(2)}%");
         }).then((value) {
           setState(() {
-            progress = 1.0;
             updateStatusLabel = 'Jogo atualizado';
           });
         }, onError: (error) {
@@ -90,13 +89,11 @@ class _MainScreenState extends State<MainScreen> {
             child: Stack(
               children: [
                 Positioned(
-                  //padding: const EdgeInsets.all(25.0),
-                  top: 85,
+                  top: 15,
                   left: 30,
                   child: Image.asset(
-                    'assets/images/logo.png',
-                    //scale: 2,
-                    scale: 1.5,
+                    'assets/images/logo_adventures.png',
+                    scale: 1.1,
                   ),
                 ),
                 Column(

@@ -45,7 +45,6 @@ O principal projeto deste repositorio, busca um arquivo de versão em um servido
 
 ```
 VERSION_URL=URL_DO_ARQUIVO_DE_VERSÃO
-UPDATE_URL=URL_DO_ARQUIVO_ZIP_DE_ATUALIZAÇÃO
 EXE_FILE_NAME=NOME_DO_executável_DO_JOGO
 LAUNCHER_FILE_NAME=NOME_DO_executável_DE_LAUNCHER
 LAUNCHER_UPDATER_FILE_NAME=NOME_DO_executável_DE_ATUALIZADOR_DE_LAUNCHER
@@ -58,6 +57,19 @@ flutter build windows
 ```
 
 O resultado da compilação será uma lista de arquivos (executável e dll's) dentro da pasta em [build/windows/x64/runner/Release/](./grand_fantasia_launcher/build/windows/x64/runner/Release/).
+
+#### Arquivo de versão
+
+O arquivo de versões do jogo, cujo endereço é especificado na variavel VERSION_URL, deve ser um JSON com o seguinte formato:
+
+```json
+[
+    {
+        "version": "....",
+        "url": "....."
+    }
+]
+```
 
 #### Opcional
 
